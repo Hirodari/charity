@@ -11,29 +11,19 @@ env:
 phases:
   install: 
     commands:
-      - docker --version
-      - echo docker installed
       - echo "setting up iam user credentials"
-      # - chmod 775 configure-named-profile.sh
       - bash configure-named-profile.sh
-      # - echo "installing eksctl cli"
-      # - bash eks/scripts/eksctl-install.sh
-      - aws --version
-      # - eksctl --version
   pre_build:
     commands:
-      - echo logging in Docker hub
-      - echo "$DOCKER_TOKEN" | docker login -u "$DOCKER_USERNAME" --password-stdin
-      # - echo $AWS_DEFAULT_REGION
-      # - aws ecr get-login-password | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com
-      # - echo building images 
+      # - echo building and pushing image to docker hub
+      # - bash push-image.sh
       - echo "connecting to charity cluster"
       - make update-config
       - kubectl get all
   build:
     commands:
       - echo build started on `date`
-      - echo "deploying pods and services for charity"
-      - bash deployment-orchastrator.sh
-      - bash create-record-53.sh
+      - echo "putting the application down"
+      - bash uninstalling-k8s-orchastrator.sh
+      - bash delete-record-53.sh
       - echo build finished on `date`
