@@ -11,11 +11,12 @@ phases:
       - docker --version
       - echo docker installed
       - echo "setting up iam user credentials"
-      - bash configure-named-profile.sh
-      - echo "installing eksctl cli"
-      - bash eks/scripts/eksctl-install.sh
+      - chmod 775 configure-named-profile.sh
+      - ./configure-named-profile.sh
+      # - echo "installing eksctl cli"
+      # - bash eks/scripts/eksctl-install.sh
       - aws --version
-      - eksctl --version
+      # - eksctl --version
   pre_build:
     commands:
       - echo logging in Docker hub
