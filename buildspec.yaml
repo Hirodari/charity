@@ -25,5 +25,5 @@ phases:
       - echo build started on `date`
       - echo "deploying workloads"
       - bash deployment-orchastrator.sh
-      - bash create-record-53.sh
+      # - bash create-record-53.sh
       - echo build finished on `date`

@@ -15,4 +15,4 @@ spec:
     spec:
       containers:
       - name: charity
-        image: hirodaridevdock/charity-website-image:2.0
+        image: hirodaridevdock/charity-website-image:3.0
