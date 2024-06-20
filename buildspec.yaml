@@ -15,15 +15,15 @@ phases:
       - bash configure-named-profile.sh
   pre_build:
     commands:
-      # - echo building and pushing image to docker hub
-      # - bash push-image.sh
+      - echo building and pushing image to docker hub
+      - bash push-image.sh
       - echo "connecting to charity cluster"
       - make update-config
       - kubectl get all
   build:
     commands:
       - echo build started on `date`
-      - echo "putting the application down"
-      - bash uninstalling-k8s-orchastrator.sh
-      - bash delete-record-53.sh
+      - echo "deploying workloads"
+      - bash deployment-orchastrator.sh
+      - bash create-record-53.sh
       - echo build finished on `date`
