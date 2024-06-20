@@ -11,8 +11,8 @@ phases:
       - docker --version
       - echo docker installed
       - echo "setting up iam user credentials"
-      - chmod 775 configure-named-profile.sh
-      - ./configure-named-profile.sh
+      # - chmod 775 configure-named-profile.sh
+      - bash configure-named-profile.sh
       # - echo "installing eksctl cli"
       # - bash eks/scripts/eksctl-install.sh
       - aws --version
