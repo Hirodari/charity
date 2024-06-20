@@ -6,6 +6,8 @@ env:
     AWS_SECRET_ACCESS_KEY: /codebuild/AWS_SECRET_ACCESS_KEY
     AWS_ACCOUNT_ID: /codebuild/AWS_ACCOUNT_ID 
     PROFILE_NAME: /codebuild/PROFILE_NAME
+    DOCKER_TOKEN: /codebuild/DOCKER_TOKEN
+    DOCKER_USERNAME: /codebuild/DOCKER_USERNAME
 phases:
   install: 
     commands:
@@ -21,7 +23,7 @@ phases:
   pre_build:
     commands:
       - echo logging in Docker hub
-      - login docker
+      - echo "$DOCKER_TOKEN" | docker login -u "$DOCKER_USERNAME" --password-stdin
       # - echo $AWS_DEFAULT_REGION
       # - aws ecr get-login-password | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com
       # - echo building images 
