@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: webapp-charity-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: "www.fredbitenyo.click"
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: charity-service
+            port: 
+              number: 80
+  
