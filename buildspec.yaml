@@ -30,7 +30,7 @@ phases:
       # - bash deployment-orchastrator.sh
       # - bash create-record-53.sh
       - echo "undeploying charity app"
-      - bash uninstall-orchastrator.sh
+      - bash uninstalling-orchastrator.sh
       - bash delete-record-53.sh
       - echo "delete cluster charity"
       - make delete-cluster
