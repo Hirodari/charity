@@ -17,6 +17,8 @@ phases:
     commands:
       - echo building and pushing image to docker hub
       - bash push-image.sh
+      - echo creating charity image 
+      - make create-cluster
       - echo "connecting to charity cluster"
       - make update-config
       - kubectl get all
@@ -25,5 +27,5 @@ phases:
       - echo build started on `date`
       - echo "deploying workloads"
       - bash deployment-orchastrator.sh
-      # - bash create-record-53.sh
+      - bash create-record-53.sh
       - echo build finished on `date`
