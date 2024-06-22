@@ -15,10 +15,10 @@ phases:
       - bash configure-named-profile.sh
   pre_build:
     commands:
-      - echo building and pushing image to docker hub
-      - bash push-image.sh
-      - echo creating charity image 
-      - make create-cluster
+      # - echo building and pushing image to docker hub
+      # - bash push-image.sh
+      # - echo creating charity image 
+      # - make create-cluster
       - echo "connecting to charity cluster"
       - make update-config
       - kubectl get all
