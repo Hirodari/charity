@@ -26,12 +26,12 @@ phases:
   build:
     commands:
       - echo build started on `date`
-      # - echo "deploying workloads"
-      # - bash deployment-orchastrator.sh
-      # - bash create-record-53.sh
-      - echo "undeploying charity app"
-      - bash uninstalling-orchastrator.sh
-      - bash delete-record-53.sh
-      - echo "delete cluster charity"
+      - echo "deploying workloads"
+      - bash deployment-orchastrator.sh
+      - bash create-record-53.sh
+      # - echo "undeploying charity app"
+      # - bash uninstalling-orchastrator.sh
+      # - bash delete-record-53.sh
+      # - echo "delete cluster charity"
       - make delete-cluster
       - echo build finished on `date`
