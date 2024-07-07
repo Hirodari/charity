@@ -18,6 +18,7 @@ phases:
       # - echo building and pushing image to docker hub
       # - bash push-image.sh
       # - echo creating charity image 
+      - echo creating cluster charity
       - make create-cluster
       - echo "connecting to charity cluster"
       - make update-config
