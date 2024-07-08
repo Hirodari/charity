@@ -18,8 +18,8 @@ phases:
       # - echo building and pushing image to docker hub
       # - bash push-image.sh
       # - echo creating charity image 
-      - echo creating cluster charity
-      - make create-cluster
+      # - echo creating cluster charity
+      # - make create-cluster
       - echo "connecting to charity cluster"
       - make update-config
       - kubectl get all
@@ -27,12 +27,12 @@ phases:
   build:
     commands:
       - echo build started on `date`
-      - echo "deploying workloads"
-      - bash deployment-orchastrator.sh
-      - bash create-record-53.sh
-      # - echo "undeploying charity app"
-      # - bash uninstalling-orchastrator.sh
-      # - bash delete-record-53.sh
-      # - echo "delete cluster charity"
-      # - make delete-cluster
+      # - echo "deploying workloads"
+      # - bash deployment-orchastrator.sh
+      # - bash create-record-53.sh
+      - echo "undeploying charity app"
+      - bash uninstalling-orchastrator.sh
+      - bash delete-record-53.sh
+      - echo "delete cluster charity"
+      - make delete-cluster
       - echo build finished on `date`
